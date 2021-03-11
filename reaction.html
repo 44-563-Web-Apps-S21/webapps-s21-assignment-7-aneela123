@@ -37,10 +37,14 @@
       }
 
   function startTime() {
-    for(let i=0;i<4;i++)
-    setTimeout(()=>{
-      document.getElementById('target').innerHTML = i
-    }, (3-i)*1000)
+    var ranNumber = Math.floor(Math.random() * 10) + 2;
+    console.log(ranNumber)
+    for(let i = 0; i < ranNumber+1; i++)
+    setTimeout(function () {
+                    document.getElementById('countdown').innerHTML = i;
+                    console.log(i)
+                }, (ranNumber - i) * 1000)
+            }
     setTimeout(() =>{
       if (myTime ==undefined){
           document.getElementById('target').innerHTML ="Too Slow"
