@@ -37,16 +37,32 @@
 	
 </body>
 <script>
-	function makeNewDiv(){
+	function makeNewDiv() {
 		/* make the div and its text */
 		let element = document.createElement("div")
 		element.innerHTML = document.getElementById("3001").value
-		element.setAttribute("class","listy")
+		let ipvalue=document.getElementById("3001").value
+		element.setAttribute("class", "listy")
 		element.style.color = "black"
+		var listyItems=document.getElementsByClassName("listy")
+		let len = document.getElementsByClassName("listy").length
+		i=0
+		if (len > 9) {
+			for (let listItem of listyItems) {
+				
+				if(listItem.innerHTML==ipvalue){
+					listyItems[i].remove();
+				}
+				else{
+					listyItems[0].remove();
+				}
+				i++;
+			}
+			/* add it to the container */
+			
 
-		/* add it to the container */
+		}
 		document.getElementById('target').appendChild(element)
-		
 	}
 </script>
 </html>	
