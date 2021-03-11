@@ -28,33 +28,34 @@
   
   
   
-  <script> 
-  var myTime= undefined
-  var buttonTime = Date.now()
+  <script>
+    var myTime = undefined
+    var buttonTime = Date.now()
     function recordReact() {
         myTime = Date.now();
         console.log("Time : " + myTime);
-      }
+    }
 
-  function startTime() {
-    var ranNumber = Math.floor(Math.random() * 10) + 2;
-    console.log(ranNumber)
-    for(let i = 0; i < ranNumber+1; i++)
-    setTimeout(function () {
-                    document.getElementById('countdown').innerHTML = i;
-                    console.log(i)
-                }, (ranNumber - i) * 1000)
+    function startTime() {
+        var rand = Math.floor(Math.random() * 10) + 2;
+        for (let i = 0; i < rand+1; i++)
+            setTimeout(() => {
+                document.getElementById('countdown').innerHTML = i
+            }, (rand - i) * 1000)
+        setTimeout(() => {
+            if (myTime == undefined) {
+                document.getElementById('target').innerHTML = "Too Slow"
             }
-    setTimeout(() =>{
-      if (myTime ==undefined){
-          document.getElementById('target').innerHTML ="Too Slow"
-      }
-      else{
-          document.getElementById('target').innerHTML ="time was " + (myTime - buttonTime);
-      }
-  },3000)
+            else {
+                document.getElementById('target').innerHTML = "time was " + (myTime - buttonTime);
+            }
+        }, 3000)
 
-  }
+    }
+
+</script>
+
+  
 
   </script>
 
